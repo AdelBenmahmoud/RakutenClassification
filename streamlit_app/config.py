@@ -12,7 +12,7 @@ TITLE = "Classipy"
 TEAM_MEMBERS = [
     Member(
         name="Adel Benmahmoud",
-        linkedin_url="https://www.linkedin.com/",
+        linkedin_url="www.linkedin.com/in/adel-benmahmoud-12636043",
         #github_url="https://github.com/",
     ),
     Member(
