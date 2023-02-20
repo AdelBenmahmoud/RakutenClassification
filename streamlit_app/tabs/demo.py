@@ -4,6 +4,7 @@ import numpy as np
 from PIL import Image
 import string
 import nltk
+nltk.download('all')
 nltk.download('stopwords')
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
