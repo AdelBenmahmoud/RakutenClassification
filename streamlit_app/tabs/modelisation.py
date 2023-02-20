@@ -27,7 +27,7 @@ def run():
 
         """
     )
-    st.image(Image.open("assets/figure_recap_modele_text_ML.png"))
+    st.image(Image.open("streamlit_app/assets/figure_recap_modele_text_ML.png"))
     
     st.markdown(
         """
@@ -41,7 +41,7 @@ def run():
 
         """
     )
-    st.image(Image.open("assets/figure_recap_modele_text_DL.png"))
+    st.image(Image.open("streamlit_app/assets/figure_recap_modele_text_DL.png"))
 
 
     st.header('Récapitulatif de performance des modèles image')  
@@ -54,8 +54,8 @@ def run():
 
         """
     )
-    st.image(Image.open("assets/figure_recap_modele_img.png"))
-    st.image(Image.open("assets/figure_recap_modele_img_EfficientNet.png"))
+    st.image(Image.open("streamlit_app/assets/figure_recap_modele_img.png"))
+    st.image(Image.open("streamlit_app/assets/figure_recap_modele_img_EfficientNet.png"))
         
         
     st.header('Fusion - Modèle multimodal')   
@@ -67,13 +67,13 @@ def run():
 
         """
     )
-    st.image(Image.open("assets/figure_modele_fusion.png"))
+    st.image(Image.open("streamlit_app/assets/figure_modele_fusion.png"))
     
     st.header('Performance des modèles retenus')
        
     st.markdown("Le modèle agrégé multimodal a réussi à augmenter la performance de prédiction d'environ **7%** par rapport au modèle unimodal de texte.")
 
-    st.image(Image.open("assets/figure_modeles_retenus_score.png"))
+    st.image(Image.open("streamlit_app/assets/figure_modeles_retenus_score.png"))
 
     model = st.selectbox("Choisissez le modèle", models)
     
@@ -84,13 +84,13 @@ def run():
     )
     
     if model == models[0]:       
-        st.image(Image.open("assets/Capture_classification_report_text_W2V.png"), width=300)
-        st.image(Image.open("assets/confusion_matrix_recall_text_W2V.png"))
+        st.image(Image.open("streamlit_app/assets/Capture_classification_report_text_W2V.PNG"), width=300)
+        st.image(Image.open("streamlit_app/assets/confusion_matrix_recall_text_W2V.png"))
     if model == models[1]:
-        st.image(Image.open("assets/Capture_classification_report_image_EfficientNet.png"), width=300)
-        st.image(Image.open("assets/confusion_matrix_recall_image_EfficientNet.png"))
+        st.image(Image.open("streamlit_app/assets/Capture_classification_report_image_EfficientNet.PNG"), width=300)
+        st.image(Image.open("streamlit_app/assets/confusion_matrix_recall_image_EfficientNet.png"))
     if model == models[2]:
-        st.image(Image.open("assets/Capture_classification_report_fusion.png"), width=300)
-        st.image(Image.open("assets/confusion_matrix_recall_fusion.png"))
+        st.image(Image.open("streamlit_app/assets/Capture_classification_report_fusion.PNG"), width=300)
+        st.image(Image.open("streamlit_app/assets/confusion_matrix_recall_fusion.png"))
 
 

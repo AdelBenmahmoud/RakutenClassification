@@ -9,9 +9,9 @@ sidebar_name = "Exploration des données"
 
 super_categories = ['Livres', 'Jeux', 'Jouets', 'Meubles', 'Equipements', 'Deco', 'Autres']
 
-df_X_train = pd.read_csv('../data/X_train_update.csv')
+df_X_train = pd.read_csv('data/X_train_update.csv')
 df_X_train = df_X_train.rename(columns={ df_X_train.columns[0]: "ID" })
-df_Y_train = pd.read_csv('../data/Y_train_CVw08PX.csv')
+df_Y_train = pd.read_csv('data/Y_train_CVw08PX.csv')
 df_Y_train = df_Y_train.rename(columns={ df_Y_train.columns[0]: "ID" })
 
 def run():
@@ -58,7 +58,7 @@ def run():
    
        """
     )
-    st.image(Image.open("assets/figure_variable_explicative_texte.png")) 
+    st.image(Image.open("streamlit_app/assets/figure_variable_explicative_texte.png")) 
 
     st.markdown(
         """
@@ -66,7 +66,7 @@ def run():
 
         """
     )
-    st.image(Image.open("assets/figure_variable_explicative_image.png")) 
+    st.image(Image.open("streamlit_app/assets/figure_variable_explicative_image.png")) 
 
 
     st.markdown(
@@ -77,7 +77,7 @@ def run():
    
        """
     )
-    st.image(Image.open("assets/figure_variable_cible_label.png")) 
+    st.image(Image.open("streamlit_app/assets/figure_variable_cible_label.png")) 
     
     
     st.markdown(
@@ -116,6 +116,6 @@ def run():
         
     st.image(Image.open("assets/Capture_wordcloud_"+supcat+".png"))
     
-    st.image(Image.open("assets/figure_tableau_super_categories.png")) 
+    st.image(Image.open("streamlit_app/assets/figure_tableau_super_categories.png")) 
     
     

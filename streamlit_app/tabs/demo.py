@@ -102,13 +102,13 @@ def word_split(text):
 
 
 #### import donnees preprocessing
-df = pd.read_csv("assets/rakuten_data_preproc.csv", index_col= 0)
-traduction = pd.read_table("assets/traduction_designation-description.txt", header=None, squeeze=True)
+df = pd.read_csv("streamlit_app/assets/rakuten_data_preproc.csv", index_col= 0)
+traduction = pd.read_table("streamlit_app/assets/traduction_designation-description.txt", header=None, squeeze=True)
 traduction.index = df.index
 traduction = traduction.apply(word_split)
 df['text_data'] = traduction
 
-df_X_train = pd.read_csv('../data/X_train_update.csv', index_col=0)
+df_X_train = pd.read_csv('data/X_train_update.csv', index_col=0)
 
 df = pd.merge(df, df_X_train, left_index=True, right_index=True)
 
@@ -131,7 +131,7 @@ max_length = 450
 X_train_img = X_train[['image', 'prdtypecode']]
 X_train_img['prdtypecode2']=X_train_img['prdtypecode'].astype(str)
 
-image_path="../data/images/image_train/"
+image_path="data/images/image_train"
 width = 240
 height = 240 # resize 
 batch = 32
@@ -201,17 +201,17 @@ def run():
                                                       batch_size = batch,
                                                       shuffle=False)
         
-        model_text_W2V = load_model("assets/text_W2V_skip-gram.h5")
+        model_text_W2V = load_model("streamlit_app/assets/text_W2V_Skip-gram.h5")
         demo_pred_txt = model_text_W2V.predict(X_demo_txt)
         demo_pred_class_txt = np.argmax(demo_pred_txt, axis=1)
         demo_pred_class_txt = encoder.inverse_transform(demo_pred_class_txt)
         
-        model_image_EfficientNetB1 = load_model("assets/image_EfficientNetB1.h5")
+        model_image_EfficientNetB1 = load_model("streamlit_app/assets/image_EfficientNetB1.h5")
         demo_pred_img = model_image_EfficientNetB1.predict(demo_set)
         fit_labels = dict((v,k) for k,v in (train_set.class_indices).items())
         demo_pred_class_img = [int(fit_labels[i]) for i in np.argmax(demo_pred_img, axis=1)]  
         
-        model_fusion_proba = load_model("assets/fusion_W2V+EfficientNetB1_2DNN.h5")
+        model_fusion_proba = load_model("streamlit_app/assets/fusion_W2V+EfficientNetB1_2DNN.h5")
         demo_pred_txt_img = np.concatenate([demo_pred_txt, demo_pred_img], axis=1)
         fusion_demo_pred_txt_img = model_fusion_proba.predict(demo_pred_txt_img)
         fusion_demo_pred_txt_img_class = np.argmax(fusion_demo_pred_txt_img, axis=1)
@@ -250,7 +250,7 @@ def run():
             manu_demo_txt = tokenizer.texts_to_sequences([manu_demo_txt])
             manu_demo_txt = tf.keras.preprocessing.sequence.pad_sequences(manu_demo_txt, maxlen=max_length, padding='post', truncating='post')
      
-            model_text_W2V = load_model("assets/text_W2V_skip-gram.h5")
+            model_text_W2V = load_model("streamlit_app/assets/text_W2V_Skip-gram.h5")
             demo_pred_txt = model_text_W2V.predict(manu_demo_txt)
             demo_pred_class_txt = np.argmax(demo_pred_txt, axis=1)
             demo_pred_class_txt = encoder.inverse_transform(demo_pred_class_txt)
@@ -262,13 +262,13 @@ def run():
             manu_demo_img = image.img_to_array(manu_demo_img)
             manu_demo_img = np.expand_dims(manu_demo_img, axis = 0)
         
-            model_image_EfficientNetB1 = load_model("assets/image_EfficientNetB1.h5")
+            model_image_EfficientNetB1 = load_model("streamlit_app/assets/image_EfficientNetB1.h5")
             demo_pred_img = model_image_EfficientNetB1.predict(manu_demo_img)
             fit_labels = dict((v,k) for k,v in (train_set.class_indices).items())
             demo_pred_class_img = [int(fit_labels[i]) for i in np.argmax(demo_pred_img, axis=1)] 
         
 
-            model_fusion_proba = load_model("assets/fusion_W2V+EfficientNetB1_2DNN.h5")
+            model_fusion_proba = load_model("streamlit_app/assets/fusion_W2V+EfficientNetB1_2DNN.h5")
             demo_pred_txt_img = np.concatenate([demo_pred_txt, demo_pred_img], axis=1)
             fusion_demo_pred_txt_img = model_fusion_proba.predict(demo_pred_txt_img)
             fusion_demo_pred_txt_img_class = np.argmax(fusion_demo_pred_txt_img, axis=1)

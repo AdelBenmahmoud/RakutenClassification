@@ -23,7 +23,7 @@ def run():
         """
     )
     
-    st.image(Image.open("assets/logo-rakuten.png"))
+    st.image(Image.open("streamlit_app/assets/logo-rakuten.png"))
 
     st.markdown(
         """
