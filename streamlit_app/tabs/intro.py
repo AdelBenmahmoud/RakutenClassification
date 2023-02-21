@@ -10,7 +10,7 @@ def run():
 
     # TODO: choose between one of these GIFs
     # st.image("https://dst-studio-template.s3.eu-west-3.amazonaws.com/1.gif")
-    st.image("https://dst-studio-template.s3.eu-west-3.amazonaws.com/2.gif")
+    st.image("https://dst-studio-template.s3.eu-west-3.amazonaws.com/2.gif", width=200)
     # st.image("https://dst-studio-template.s3.eu-west-3.amazonaws.com/3.gif")
 
     st.title(title)
