@@ -4,7 +4,6 @@ import numpy as np
 from PIL import Image
 import string
 import nltk
-nltk.download('all')
 nltk.download('stopwords')
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
@@ -132,7 +131,7 @@ max_length = 450
 X_train_img = X_train[['image', 'prdtypecode']]
 X_train_img['prdtypecode2']=X_train_img['prdtypecode'].astype(str)
 
-image_path="data/images/image_train"
+image_path="/workspaces/RakutenClassification/data/images/image_train"
 width = 240
 height = 240 # resize 
 batch = 32
